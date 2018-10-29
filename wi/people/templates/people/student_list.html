@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de profesoras</title>
+</head>
+<body>
+<ul>
+  {% for student in student_list %}
+        <li><a href="/people/student/{{ student.id }}/">{{ student.name }} </a></li>
+  {% endfor %}
+</ul>
+<div>
+    {% if page_obj.has_previous %}
+      <a href="{% url 'students' %}?page={{ page_obj.previous_page_number }}">
+        <span>&laquo; Previous</span>
+      </a>
+    {% else %}
+      <span>&laquo; Previous</span>
+    {% endif %}
+
+      <span> | </span>
+
+    {% if page_obj.has_next %}
+      <a href="{% url 'students' %}?page={{ page_obj.next_page_number }}">
+        <span>Next &raquo;</span>
+      </a>
+    {% else %}
+      <span>Next &raquo;</span>
+    {% endif %}
+</div>
+
+
+
+
+
+</body>
+</html>
+
+
