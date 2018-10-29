@@ -2,9 +2,16 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Detalles de estudiante</title>
+    <title>Detalles de profesor {{ teacher.name }}</title>
 </head>
 <body>
-    {{ teacher }}
+
+<ul>
+    <p> Profesora: {{ teacher.name }}  </p>
+    <p> Estudiantes asociados a la profesora {{ teacher.name }} </p>
+        {% for student in teacher.student_set.all %}
+            <li>{{ student.name }}</li>
+        {% endfor %}
+</ul>
 </body>
 </html>

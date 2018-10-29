@@ -2,9 +2,13 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Detalles de estudiante</title>
+    <title>Detalles de estudiante {{ student.name }}</title>
 </head>
 <body>
-    {{ student }}
+    <p> Estudiante: {{ student }}  </p>
+    <p> Profesora del estudiante: {{ student.teacher }} </p>
+
+
+
 </body>
 </html>
