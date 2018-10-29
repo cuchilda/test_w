@@ -33,10 +33,12 @@ def detail_teacher(request, teacher_id):
         raise Http404('El profesor consultado no existe')
     return render(request, 'people/detail_teacher.html', {'teacher':teacher})
 
-def generate_students(request, n_students):
+def generator_students(request, n_students):
+    generate_students(n_students)
     return HttpResponse("%s estudiantes han sido generados" % n_students)
 
-def generate_teachers(request, n_teachers):
+def generator_teachers(request, n_teachers):
+    generate_teachers(n_teachers)
     return HttpResponse("%s profesoras han sido generadas" % n_teachers)
 
 class TeachersListView(ListView):
