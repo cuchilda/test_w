@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, Http404
 from django.template import loader
 from django.views.generic.list import ListView
+from .scripts.generate_users import generate_students, generate_teachers
 
 
 from people.models import Teacher, Student
@@ -31,6 +32,12 @@ def detail_teacher(request, teacher_id):
     except Teacher.DoesNotExist:
         raise Http404('El profesor consultado no existe')
     return render(request, 'people/detail_teacher.html', {'teacher':teacher})
+
+def generate_students(request, n_students):
+    return HttpResponse("%s estudiantes han sido generados" % n_students)
+
+def generate_teachers(request, n_teachers):
+    return HttpResponse("%s profesoras han sido generadas" % n_teachers)
 
 class TeachersListView(ListView):
     model = Teacher
